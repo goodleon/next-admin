@@ -20,10 +20,12 @@ Language : [🇺🇸](./README.md)  | 🇨🇳
 
 </div>
 
-- 预览: http://next-admin.com
-- 登录页面: http://next-admin.com/user/login
+- 预览: 关注 **趣谈AI** 公众号
+- 登录页面: /user/login
 - 国内镜像: https://gitee.com/lowcode-china/next-admin
-- Nocode/WEP文档知识引擎: http://wep.turntip.cn
+- 多维表格编辑器: http://pxcharts.com
+- 多模态文档编辑器：https://flowmix.turntip.cn
+- 协同文档编辑器：https://flowmix.turntip.cn/px-editor
 
 ## 1.0 版本! 🎉🎉🎉
 
