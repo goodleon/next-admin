@@ -1,8 +1,8 @@
 'use client'
+import React, { useState, useCallback } from 'react';
 import { Tabs, Skeleton, type TabsProps } from 'antd';
 import Layout from '@/components/Layout';
 import styles from './index.module.less';
-import { useState, useCallback } from 'react';
 
 // 优化后的图片数据，去重并添加懒加载
 const imageData = [
@@ -29,7 +29,7 @@ const imageData = [
 ];
 
 // 懒加载图片组件
-const LazyImage = ({ src, alt, className }: { src: string; alt: string; className?: string }) => {
+const LazyImage = React.memo(({ src, alt, className }: { src: string; alt: string; className?: string }) => {
   const [loaded, setLoaded] = useState(false);
   const [inView, setInView] = useState(false);
 
@@ -71,7 +71,7 @@ const LazyImage = ({ src, alt, className }: { src: string; alt: string; classNam
       )}
     </div>
   );
-};
+});
 
 const List = (
   <div className={styles.fuildWrap}>
@@ -107,11 +107,8 @@ const items: TabsProps['items'] = [
 
 export default function Resource() {
   return (
-    <Layout curActive='/resource'>
-        <main style={{minHeight: 'calc(100vh - 260px)'}}>
-          <Tabs defaultActiveKey="1" items={items} />
-        </main>
-    </Layout>
-    
+    <main style={{minHeight: 'calc(100vh - 260px)'}}>
+      <Tabs defaultActiveKey="1" items={items} />
+    </main>
   );
 }

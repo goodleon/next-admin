@@ -2,7 +2,6 @@
 // import { useTranslations} from 'next-intl';
 import { Button, Spin } from 'antd';
 import { useState, useRef, useEffect } from 'react';
-import Layout from '@/components/Layout';
 import dynamic from 'next/dynamic';
 
 import styles from './index.module.less';
@@ -27,10 +26,8 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <Layout curActive='/dashboard/rpa'>
-        <main className={styles.monitorWrap}>
-            <Graph />
-        </main>
-    </Layout>
+    <main className={styles.monitorWrap}>
+        <Graph />
+    </main>
   );
 }

@@ -19,17 +19,14 @@ export default function User() {
   };
 
   return (
-    <Layout curActive='/user'>
-        <main className={styles.userWrap}>
-            <div className={styles.content}>
-               <AvaForm />
-                <div style={listStyle}>
-                    <h3>{ t('userList') }</h3>
-                    <Table columns={columns} dataSource={data} pagination={{pageSize: 5}} scroll={{ x: 1000 }} />
-                </div>
+    <main className={styles.userWrap}>
+        <div className={styles.content}>
+           <AvaForm />
+            <div style={listStyle}>
+                <h3>{ t('userList') }</h3>
+                <Table columns={columns} dataSource={data} pagination={{pageSize: 5}} scroll={{ x: 1000 }} />
             </div>
-        </main>
-    </Layout>
-    
+        </div>
+    </main>
   );
 }

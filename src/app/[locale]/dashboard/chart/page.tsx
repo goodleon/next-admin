@@ -3,7 +3,6 @@
 import { Button, Spin } from 'antd';
 import { useState, useRef, useEffect, Suspense } from 'react';
 import { checkData } from './api';
-import Layout from '@/components/Layout';
 import Editor from './edit/Editor';
 
 import styles from './index.module.less';
@@ -23,17 +22,14 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <Layout curActive='/dashboard/chart'>
-        <main className={styles.monitorWrap}>
-            <Spin tip="数据加载中..." size="large" spinning={loading}>
-                <div className={styles.content} ref={boardContainerRef}>
-                    <Suspense>
-                        <Editor />
-                    </Suspense>
-                </div>
-            </Spin>
-        </main>
-    </Layout>
-    
+    <main className={styles.monitorWrap}>
+        <Spin tip="数据加载中..." size="large" spinning={loading}>
+            <div className={styles.content} ref={boardContainerRef}>
+                <Suspense>
+                    <Editor />
+                </Suspense>
+            </div>
+        </Spin>
+    </main>
   );
 }

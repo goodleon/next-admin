@@ -1,0 +1,86 @@
+.tabsContainer {
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 0;
+  
+  .tabsHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    
+    .tabs {
+      flex: 1;
+      
+      :global(.ant-tabs-nav) {
+        margin: 0;
+        padding: 8px 0;
+      }
+      
+      :global(.ant-tabs-tab) {
+        margin: 0 4px;
+        padding: 4px 8px;
+        border: 1px solid #d9d9d9;
+        border-radius: 4px 4px 0 0;
+        background: #fafafa;
+        transition: all 0.3s;
+        
+        &:hover {
+          background: #f0f0f0;
+        }
+        
+        &.ant-tabs-tab-active {
+          background: #fff;
+          border-bottom-color: #fff;
+          color: #1890ff;
+        }
+      }
+      
+      :global(.ant-tabs-content-holder) {
+        display: none;
+      }
+    }
+    
+    .tabActions {
+      display: flex;
+      gap: 8px;
+      margin-left: 16px;
+      
+      .actionBtn {
+        font-size: 12px;
+        height: 24px;
+        padding: 0 8px;
+      }
+    }
+  }
+}
+
+// 移除自定义关闭按钮样式，使用Ant Design默认样式
+
+// 暗色主题适配
+:global(.dark) {
+  .tabsContainer {
+    background: #141414;
+    border-bottom-color: #303030;
+    
+    .tabsHeader {
+      .tabs {
+        :global(.ant-tabs-tab) {
+          background: #262626;
+          border-color: #434343;
+          color: rgba(255, 255, 255, 0.85);
+          
+          &:hover {
+            background: #434343;
+          }
+          
+          &.ant-tabs-tab-active {
+            background: #141414;
+            border-bottom-color: #141414;
+            color: #1890ff;
+          }
+        }
+      }
+    }
+  }
+}

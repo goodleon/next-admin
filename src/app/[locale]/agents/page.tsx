@@ -1,7 +1,6 @@
 'use client';
 import { Popover } from 'antd';
 import { useEffect, useState } from 'react';
-import Layout from '@/components/Layout';
 import { ProChat } from '@ant-design/pro-chat';
 import { MockSSEResponse } from './mock';
 import styles from './index.module.less';
@@ -32,11 +31,10 @@ export default function Home() {
     </div>
   );
   return (
-    <Layout curActive="/agents">
-      <div style={{minHeight: 'calc(100vh - 260px)'}}>
-        {
-          showComponent &&
-          <ProChat
+    <div style={{minHeight: 'calc(100vh - 260px)'}}>
+      {
+        showComponent &&
+        <ProChat
             className={styles.chatWrap}
             helloMessage={
               <div className={styles.helloBox}>
@@ -126,10 +124,9 @@ export default function Home() {
                 });
                 return new Response(readableStream);
               }}
-          />
-        }
-        
-      </div>
-    </Layout>
+        />
+      }
+      
+    </div>
   );
 }

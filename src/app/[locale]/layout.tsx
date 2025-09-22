@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import {
-  getTranslations
+  getTranslations,
+  getMessages
 } from 'next-intl/server';
+import { NextIntlClientProvider } from 'next-intl';
+import ClientLayout from '@/components/ClientLayout';
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,13 +28,21 @@ export async function generateMetadata({
   };
 }
 
-export default function BasicLayout({children, params: {locale}}: Readonly<Props>) {
+export default async function BasicLayout({children, params}: Readonly<Props>) {
+  const messages = await getMessages();
+  
   return (
-    <html lang={locale}>
+    <html lang={params.locale}>
       <head>
       </head>
       <body className={inter.className}>
-        <AntdRegistry>{children}</AntdRegistry>
+        <AntdRegistry>
+          <NextIntlClientProvider locale={params.locale} messages={messages}>
+            <ClientLayout>
+              {children}
+            </ClientLayout>
+          </NextIntlClientProvider>
+        </AntdRegistry>
       </body>
     </html>
   );
