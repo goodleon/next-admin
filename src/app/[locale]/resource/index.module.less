@@ -7,13 +7,15 @@
         /* width: calc(50% - 24px); */
         margin-bottom: 12px;
         overflow: hidden;
-        transition: transform .3s;
+        transition: transform .3s ease;
+        will-change: transform; // 优化动画性能
         &:hover {
           transform: translateY(-6px);
         }
         img {
           width: 100%;
           border-radius: 6px;
+          display: block; // 避免图片底部空白
         }
       }
   }
